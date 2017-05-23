@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Churchplus_Records.Views.SingleRecord"
+             Title="{Binding ChurchName}"
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.Icon Text="Save" Clicked="OnSaveClicked">
+                <OnPlatform x:TypeArguments="FileImageSource" Android="save.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Text="Delete" Clicked="OnDeleteClicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource" Android="delete.png"/>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout Padding="15,20,15,20" VerticalOptions="StartAndExpand">
+            <Grid RowSpacing="2" ColumnSpacing="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="65"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Church Name:" FontSize="Medium" VerticalOptions="Center"/>
+                <Entry Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="5" Text="{Binding ChurchName}" VerticalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Pastor Name:" VerticalOptions="Center" FontSize="Medium"/>
+                <Entry Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="5" Text="{Binding PastorName}"  VerticalOptions="Center"/>
+                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="Website Url:" VerticalOptions="Center" FontSize="Medium"/>
+                <Entry Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="5" Text="{Binding WebsiteURL}" VerticalOptions="Center" Placeholder="http://websiteurl.com" />
+                <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Text="Email:" VerticalOptions="Center" FontSize="Medium"/>
+                <Entry Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5" Text="{Binding Email}" VerticalOptions="Center" Placeholder="info@ChurchEmail.com" />
+                <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Text="Phone Number:" VerticalOptions="Center" FontSize="Medium"/>
+                <Entry Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="5" Text="{Binding PhoneNumber}"  VerticalOptions="Center" Placeholder="+234 012 345 6789"  />
+                <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Text="Payment Date:" VerticalOptions="Center" FontSize="Medium"/>
+                <DatePicker Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="5" Date="{Binding PaymentDate}"  VerticalOptions="Center"/>
+                <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Text="Expiration Date:" VerticalOptions="Center" FontSize="Medium"/>
+                <DatePicker Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="5" Date="{Binding ExpirationDate}" VerticalOptions="Center"/>
+                <Label  Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" Text="Expired?" VerticalOptions="Center" FontSize="Medium"/>
+                <Switch Grid.Row="7" Grid.Column="3"  IsToggled="{Binding Path=Expired}" />
+
+                <Button HeightRequest="60" WidthRequest="110" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Text="Save" Clicked="OnSaveClicked" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="SkyBlue" TextColor="White" />
+                <Button HeightRequest="60" WidthRequest="120" Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="2" Text="Delete" Clicked="OnDeleteClicked" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Red" TextColor="White"/>
+                <Button HeightRequest="60" WidthRequest="100" Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Text="Back To List" Clicked="Back" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Black" TextColor="White"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+    

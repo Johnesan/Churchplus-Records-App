@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Churchplus_Records.Views.RecordsList"
+             Title="ChurchPlus Records"
+             BackgroundColor="#e8e6e5">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="OnAddButtonClicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource" Android="addrecord.png"/>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ListView  x:Name="RecordsListView"
+                       HasUnevenRows="True"
+                       ItemSelected="OnSingleRecordSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Vertical" Padding="7,7,3,7">
+                                    <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
+                                        <Label Text="{Binding ChurchName}"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="20"/>
+                                        <Label Text="{Binding ExpirationDate, StringFormat='{0:dd/MM/yyyy}'}"   HorizontalOptions="EndAndExpand"   HorizontalTextAlignment="End" VerticalTextAlignment="Center" FontSize="12"  Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
+                                        <Label Text="{Binding WebsiteURL}"  HorizontalOptions="Start" VerticalTextAlignment="Center" FontSize="12"/>
+                                        <Image Source="expired.png" IsVisible="{Binding Expired}" HorizontalOptions="EndAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ScrollView>
+</ContentPage>

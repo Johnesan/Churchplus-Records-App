@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Churchplus_Records.Views.SingleYoutubeVideo"
+             Title="SingleYoutubeVideo">
+    <ScrollView>
+        <StackLayout Orientation = "Vertical"
+                     Padding="10,10,10,20">
+            <Label Text = "{Binding Title}"
+                     TextColor="Maroon"
+                     FontSize="22"/>
+            <StackLayout Orientation = "Horizontal" >
+                <Label Text="{Binding ViewCount, StringFormat='{0:n0} views'}"
+                       TextColor="#0D47A1"
+                       FontSize="14"/>
+                <Label Text = "{Binding LikeCount, StringFormat='{0:n0} likes'}"
+                       TextColor="#2196F3"
+                       FontSize="14"/>
+                <Label Text = "{Binding DislikeCount, StringFormat='{0:n0} dislikes'}"
+                       TextColor="#0D47A1"
+                       FontSize="14"/>
+            </StackLayout>
+
+            <WebView x:Name="youtubeVideo" 
+                 HorizontalOptions="FillAndExpand"
+                 Navigating="youtubeVideo_Navigating"
+                 Navigated="youtubeVideo_Navigated"
+                     HeightRequest="200"/>
+            <Label Text = "{Binding Description}"
+                     TextColor="Gray"
+                     FontSize="14"/>
+            <Label x:Name="videoId" Text="{Binding VideoId}" IsVisible="False"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

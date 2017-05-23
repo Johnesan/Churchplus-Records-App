@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Churchplus_Records.Views.TutorialVideos"
+             Title="TutorialVideos">
+
+
+    <StackLayout Padding = "5,10"
+               BackgroundColor="White">
+
+        <Label Text = "Watch Our Youtube Videos" TextColor="ForestGreen" FontSize="22" HorizontalTextAlignment="Center"/>
+
+        <ListView ItemsSource = "{Binding YoutubeItems}"
+              HasUnevenRows="True"
+                  Margin="0,3,0,5"
+                  ItemSelected="OnSingleVideoSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source = "{Binding HighThumbnailUrl}" Margin="7,0,0,0"/>
+                            <StackLayout Grid.Column="1" Grid.ColumnSpan="2" Orientation="Vertical" Margin="7,0,0,0" >
+                                <Label Text = "{Binding Title}" TextColor="Black" FontSize="18" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding ViewCount, StringFormat='{0:n0} views'}" TextColor="#0D47A1" FontSize="14"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

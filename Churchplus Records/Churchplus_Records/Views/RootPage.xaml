@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Churchplus_Records.Views.RootPage"
+             xmlns:pages="clr-namespace:Churchplus_Records.Views;">
+    <!--The Master page-->
+    <MasterDetailPage.Master>
+        <pages:RootPageMaster x:Name="MasterPage" />
+    </MasterDetailPage.Master>
+
+    <!--The Detail Container; Set to the RecordsList At startup-->
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <pages:RecordsList />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
